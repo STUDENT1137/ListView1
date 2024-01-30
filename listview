@@ -1,0 +1,52 @@
+import 'package:flutter/material.dart';
+
+void main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Two Lists App',
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Two Lists App'),
+        ),
+        body: Column(
+          children: [
+            Container(
+              height: 150.0,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (BuildContext context, int index) {
+                  return Container(
+                    width: 30.0,
+                    color: const Color.fromARGB(255, 181, 213, 238),
+                    child: Center(
+                      child: Text('Item $index'),
+                    ),
+                  );
+                },
+                itemCount: 40,
+              ),
+            ),
+            SizedBox(height: 5.0, child: Container(color: const Color.fromARGB(255, 0, 0, 0))), 
+            Expanded(
+              child: ListView.builder(
+                itemBuilder: (BuildContext context, int index) {
+                  return Container(
+                    color: const Color.fromARGB(255, 135, 236, 139),
+                    height: 50.0,
+                    child: Center(
+                      child: Text('Item $index'),
+                    ),
+                  );
+                },
+                itemCount: 30,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
